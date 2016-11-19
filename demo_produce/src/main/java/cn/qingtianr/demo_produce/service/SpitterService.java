@@ -1,4 +1,4 @@
-package cn.qingtianr.demo.service;
+package cn.qingtianr.demo_produce.service;
 /**
  * Hessian的接口，定义在这个包中其实不是很好
 **  author:jack 2016年11月2016/11/19日
