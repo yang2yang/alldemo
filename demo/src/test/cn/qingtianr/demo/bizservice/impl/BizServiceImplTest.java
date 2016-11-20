@@ -14,8 +14,8 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes=SpringConfig.class, loader=AnnotationConfigContextLoader.class)
-@ContextConfiguration("classpath:/spring/demo.xml")
+@ContextConfiguration(classes=SpringConfig.class, loader=AnnotationConfigContextLoader.class)
+//@ContextConfiguration("classpath:/spring/demo.xml")
 public class BizServiceImplTest {
 
     @Autowired
