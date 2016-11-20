@@ -3,6 +3,7 @@ package cn.qingtianr.demo.bizservice.impl;
 import cn.qingtianr.demo.bizservice.BizService;
 import cn.qingtianr.demo.service.SpitterService;
 import cn.qingtianr.demo.springconfig.SpringConfig;
+import com.caucho.hessian.client.HessianProxyFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=SpringConfig.class, loader=AnnotationConfigContextLoader.class)
-//@ContextConfiguration("classpath:/spring/demo.xml")
+//@ContextConfiguration(classes=SpringConfig.class, loader=AnnotationConfigContextLoader.class)
+@ContextConfiguration("classpath:/spring/demo.xml")
 public class BizServiceImplTest {
 
     @Autowired
@@ -31,5 +32,16 @@ public class BizServiceImplTest {
     @Test
     public void onlySayHello() throws Exception {
         bizService.onlySayHello();
+    }
+
+    @Test
+    public void onlySayHelloWithoutSpring() throws Exception{
+        String url = "http://localhost:8080/spitter.service";
+
+        HessianProxyFactory factory = new HessianProxyFactory();
+
+        SpitterService spitterService = (SpitterService) factory.create(SpitterService.class, url);
+
+        System.out.println(spitterService.SayHello());
     }
 }
