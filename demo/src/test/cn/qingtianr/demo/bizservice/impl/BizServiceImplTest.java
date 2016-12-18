@@ -40,7 +40,7 @@ public class BizServiceImplTest {
 
         HessianProxyFactory factory = new HessianProxyFactory();
 
-        SpitterService spitterService = (SpitterService) factory.create(SpitterService.class, url);
+          spitterService = (SpitterService) factory.create(SpitterService.class, url);
 
         System.out.println(spitterService.SayHello());
     }
