@@ -1,3 +1,5 @@
+package exceptiondemo;
+
 /**
 **  author:jack 2016年12月2016/12/3日
 */
@@ -7,18 +9,18 @@ public class FullConstructors {
     private int b;
 
     public static void f() throws MyException{
-        System.out.println("Throwing MyException from f()");
+        System.out.println("Throwing exceptiondemo.MyException from f()");
         throw new MyException();
     }
 
     public static void g() throws MyException{
-        System.out.println("Throwing MyException from g()");
+        System.out.println("Throwing exceptiondemo.MyException from g()");
         throw new MyException("Originated in g()");
     }
 
     public static void m(){
         try {
-            throw new MyException("Throwing MyException from m()");
+            throw new MyException("Throwing exceptiondemo.MyException from m()");
         } catch (MyException e) {
             e.printStackTrace();
         }
@@ -26,7 +28,7 @@ public class FullConstructors {
 
     public void n() throws MyException {
         a = 6;
-        throw new MyException("Throwing MyException from n");
+        throw new MyException("Throwing exceptiondemo.MyException from n");
     }
 
     public static void main(String[] args) {
@@ -52,7 +54,7 @@ public class FullConstructors {
             e.printStackTrace();
         }
 
-        System.out.println("after throwing MyException a="+fullConstructors.a);
+        System.out.println("after throwing exceptiondemo.MyException a="+fullConstructors.a);
 
         try{
             f();
