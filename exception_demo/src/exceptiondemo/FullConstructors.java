@@ -35,7 +35,7 @@ public class FullConstructors {
 
         FullConstructors fullConstructors = new FullConstructors();
 
-        System.out.println("a=" + fullConstructors.a);
+        System.out.println("A=" + fullConstructors.a);
 
         FullConstructors fullConstructors1 = null;
 
@@ -54,7 +54,7 @@ public class FullConstructors {
             e.printStackTrace();
         }
 
-        System.out.println("after throwing exceptiondemo.MyException a="+fullConstructors.a);
+        System.out.println("after throwing exceptiondemo.MyException A="+fullConstructors.a);
 
         try{
             f();
