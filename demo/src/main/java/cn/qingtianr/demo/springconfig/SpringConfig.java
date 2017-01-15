@@ -9,8 +9,8 @@ import org.springframework.remoting.caucho.HessianProxyFactoryBean;
 /**
  * *  author:jack 2016年11月2016/11/19日
  */
-@Configuration
-@ComponentScan("cn.qingtianr.demo")
+//@Configuration
+//@ComponentScan("cn.qingtianr.demo")
 public class SpringConfig {
 
     @Bean
