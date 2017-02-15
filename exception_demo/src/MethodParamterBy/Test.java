@@ -13,8 +13,8 @@ public class Test {
         Double dd = 5.0;
         String s = "123";
         changeValueA(aa,date,dd,s);
-        System.out.println(dd);
-        System.out.println(date);
+//        System.out.println(dd);
+//        System.out.println(date);
         System.out.println(s);
     }
 
