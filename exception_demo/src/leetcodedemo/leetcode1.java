@@ -7,5 +7,6 @@ public class leetcode1 {
         String a = "123";
         a.length();
         System.out.println(Integer.parseInt(a.substring(0,2)));
+
     }
 }

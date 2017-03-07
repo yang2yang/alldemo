@@ -1,6 +1,5 @@
 package leetcodedemo;
 
-import jdk.nashorn.internal.ir.Flags;
 import sortdemo.ListNode;
 
 /**
