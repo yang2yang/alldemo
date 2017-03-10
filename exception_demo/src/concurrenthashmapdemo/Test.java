@@ -22,6 +22,7 @@ public class Test {
 
         Hashtable table = new Hashtable();
         table.put("1","a");
+        table.put("1","d");
         table.put("2","b");
         table.put("3","c");
 
