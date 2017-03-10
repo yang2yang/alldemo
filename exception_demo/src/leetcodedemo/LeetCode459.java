@@ -7,7 +7,7 @@ public class LeetCode459 {//暂时不做了,模拟一下就可以了，小细节
 //        for(){
 //
 //        }
-        return;
+        return true;
     }
 }
 
