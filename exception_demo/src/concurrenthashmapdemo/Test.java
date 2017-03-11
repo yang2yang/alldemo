@@ -21,13 +21,8 @@ public class Test {
 
 
         Hashtable table = new Hashtable();
-        table.put("1","a");
-        table.put("1","d");
-        table.put("2","b");
-        table.put("3","c");
-
-        System.out.println(table.get("1"));
-        System.out.println(table.get("2"));
-        System.out.println(table.get("3"));
+        table.put("A","aaa");
+        table.put("L","lll");
+        System.out.println(table.size());
     }
 }

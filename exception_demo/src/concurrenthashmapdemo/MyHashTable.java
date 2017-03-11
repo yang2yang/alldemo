@@ -10,12 +10,12 @@ public class MyHashTable {
 
     private Entry[] table;
 
-    private int Capacity = 10;
+    private int capacity = 10;
 
     private int count = 0;
 
     public MyHashTable(){
-        table = new Entry[Capacity];
+        table = new Entry[capacity];
     }
 
     /**
@@ -24,7 +24,7 @@ public class MyHashTable {
      * @return
      */
     private int hash(String key){
-        return key.hashCode() % 10;
+        return key.hashCode() % capacity;
     }
 
     /**
@@ -38,7 +38,7 @@ public class MyHashTable {
         int index = hash(key);
         //保存最后一个元素的引用
         Entry last = null;
-        if(table[index] == null){
+        if(table[index] == null){//其实这里是可以优化掉的
             table[index] = new Entry(key,value);
             count++;
             return;
@@ -80,8 +80,12 @@ public class MyHashTable {
      * 获得所有的元素的数量
      * @return
      */
-    public int size(){
+    public synchronized int size(){
         return count;
+    }
+
+    public synchronized boolean containsKey(String key){
+        return true;
     }
 
 
