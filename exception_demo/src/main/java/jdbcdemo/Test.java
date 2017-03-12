@@ -1,9 +1,6 @@
 package jdbcdemo;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 /**
@@ -17,7 +14,7 @@ public class Test {
         try {
             //加载驱动类
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://192.168.5.12:3306/demodb", "root", "123456");
+            conn = DriverManager.getConnection("jdbc:mysql://192.168.5.12:3306/demodb", "root", "root123");
 
             conn.setAutoCommit(false); //JDBC中默认是true，自动提交事务</span>
 
@@ -27,16 +24,13 @@ public class Test {
             ps1.execute();
             System.out.println("插入一个用户张三");
 
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            ps2 = conn.prepareStatement("select * from article");
+            ResultSet resultSet = ps2.executeQuery("select * from article");
+            while(resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String title = resultSet.getString("title");
             }
 
-            ps2 = conn.prepareStatement("insert into article (id,title) values (?,?)");
-            ps2.setObject(1, 123);
-            ps2.setObject(2, "gaibain222");
-            ps2.execute();
             System.out.println("插入一个用户李四");
 
             conn.commit();//提交事务
