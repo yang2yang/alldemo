@@ -9,4 +9,8 @@ public class Child extends Father {
     public void printFather(){
         System.out.println("Child");
     }
+
+    public void sayHello(){
+        System.out.println("hello,child");
+    }
 }
