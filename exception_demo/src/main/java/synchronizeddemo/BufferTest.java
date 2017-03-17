@@ -1,25 +1,28 @@
 package synchronizeddemo;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * *  author:jack 2017年03月2017/3/15日
  */
 public class BufferTest {
 
+    Lock lock = new ReentrantLock();
+
     private Person person = new Person();
 
     public synchronized void write() {
-        synchronized (person) {
+            lock.lock();
             long startTime = System.currentTimeMillis();
             System.out.println("开始往这个buff写入数据…");
-            for (; ; )// 模拟要处理很长时间
-            {
+            for (; ; ) {// 模拟要处理很长时间
                 if (System.currentTimeMillis()
                         - startTime > Integer.MAX_VALUE) {
                     break;
                 }
             }
             System.out.println("终于写完了");
-        }
     }
 
     public synchronized void read() {
@@ -27,9 +30,8 @@ public class BufferTest {
     }
 
     public void readSyn() {
-        synchronized (person) {
-            System.out.println("从这个buff中读数据，使用的是方法内部的syn块...");
-        }
+        lock.lock();
+        System.out.println("从这个buff中读数据，使用的是方法内部的syn块...");
     }
 
     public void readNoSyn() {

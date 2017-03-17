@@ -16,5 +16,11 @@ public class Test {
         System.out.println(obj.value);
         obj.printFather();
 
+        //检测子类能否继承父类方法
+        //这个静态变量的东西还是很有问题的，到底引用是怎么实现的呢?
+        Child child = new Child();
+        Father a = new Child();
+        System.out.println(a.i);
+        System.out.println(child.i);
     }
 }

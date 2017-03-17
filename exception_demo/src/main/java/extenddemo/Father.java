@@ -1,11 +1,11 @@
 package extenddemo;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 /**
 **  author:jack 2017年03月2017/3/9日
 */
 public class Father {
+
+    public static int i = 0;
 
     public String value = "fathervalue";
 

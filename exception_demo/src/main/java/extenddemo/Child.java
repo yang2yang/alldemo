@@ -4,6 +4,8 @@ package extenddemo;
 */
 public class Child extends Father {
 
+    public static int i = 1;
+
     public String value = "childvalue";
 
     public void printFather(){
