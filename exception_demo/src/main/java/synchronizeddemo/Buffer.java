@@ -1,8 +1,11 @@
 package synchronizeddemo;
+
 /**
-**  author:jack 2017年03月2017/3/15日
-*/
+ * *  author:jack 2017年03月2017/3/15日
+ */
 public class Buffer {
+
+    private String name = "It is the name value";
 
     private Object lock;
 
@@ -11,13 +14,13 @@ public class Buffer {
     }
 
     public void write() {
-        synchronized (lock) {
+        synchronized (this) {
             long startTime = System.currentTimeMillis();
             System.out.println("开始往这个buff写入数据…");
-            for (;;)// 模拟要处理很长时间
+            for (; ; )// 模拟要处理很长时间
             {
                 if (System.currentTimeMillis()
-                        - startTime > 1) {
+                        - startTime > Integer.MAX_VALUE) {
                     break;
                 }
             }
@@ -26,39 +29,37 @@ public class Buffer {
     }
 
     public void read() {
-        synchronized (lock) {
+        synchronized (this) {
             System.out.println("从这个buff读数据");
         }
     }
 
-    public static void main(String[] args) {
-        BufferTest buff = new BufferTest();
-        BufferTest buff2 = new BufferTest();
+    public void readNoSyn(){
+        System.out.println(name);
+    }
 
-        final Writer3 writer = new Writer3(buff);
-        final Reader3 reader = new Reader3(buff2);
+    public static void main(String[] args) {
+        Buffer buff = new Buffer();
+        Buffer buff2 = new Buffer();
+
+        final Writer writer = new Writer(buff);
+        final Reader reader = new Reader(buff);
 
         writer.start();
         reader.start();
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                long start = System.currentTimeMillis();
-                for (;;) {
-                    //等5秒钟去中断读
-                    if (System.currentTimeMillis()
-                            - start > 5000) {
-                        System.out.println("不等了，尝试中断");
-                        reader.interrupt();
-                        break;
-                    }
-
-                }
-
+        long start = System.currentTimeMillis();
+        for (; ; ) {
+            //等5秒钟去中断读
+            if (System.currentTimeMillis()
+                    - start > 5000) {
+                System.out.println("不等了，尝试中断");
+                reader.interrupt();
+                break;
             }
-        }).start();
+
+        }
+
         // 我们期待“读”这个线程能退出等待锁，可是事与愿违，一旦读这个线程发现自己得不到锁，
         // 就一直开始等待了，就算它等死，也得不到锁，因为写线程要21亿秒才能完成 T_T ，即使我们中断它，
         // 它都不来响应下，看来真的要等死了。这个时候，ReentrantLock给了一种机制让我们来响应中断，
@@ -68,9 +69,9 @@ public class Buffer {
 
 class Writer extends Thread {
 
-    private BufferTest buff;
+    private Buffer buff;
 
-    public Writer(BufferTest buff) {
+    public Writer(Buffer buff) {
         this.buff = buff;
     }
 
@@ -82,16 +83,16 @@ class Writer extends Thread {
 
 class Reader extends Thread {
 
-    private BufferTest buff;
+    private Buffer buff;
 
-    public Reader(BufferTest buff) {
+    public Reader(Buffer buff) {
         this.buff = buff;
     }
 
     @Override
     public void run() {
 
-        buff.read();//这里估计会一直阻塞
+        buff.readNoSyn();//这里估计会一直阻塞
 
         System.out.println("读结束");
 
