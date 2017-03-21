@@ -2,6 +2,7 @@ package produceconsumedemo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
 **  author:jack 2017年03月2017/3/17日
@@ -110,5 +111,19 @@ class Resource{
         System.out.println("减少一个,i = " + i);
         //唤醒其他线程
         notify();
+    }
+}
+
+
+class ResourceCAS{
+
+    AtomicInteger atomicInteger = new AtomicInteger(10);
+
+    public void increase(){
+
+    }
+
+    public void decrease(){
+
     }
 }
