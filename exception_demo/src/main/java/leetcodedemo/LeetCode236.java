@@ -44,4 +44,8 @@ public class LeetCode236 {
             return searchTreeNode(root.left, p) || searchTreeNode(root.right, p);
         }
     }
+
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q){
+        return null;
+    }
 }
