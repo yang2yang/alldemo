@@ -12,6 +12,7 @@
         <module>demo</module>
         <module>demo_produce</module>
         <module>exception_demo</module>
+        <module>springbootdemo</module>
     </modules>
 
     <dependencies>
