@@ -10,5 +10,14 @@ package classdemo;
  */
 public class A {
     private int a;
+
     private Long b;
+
+    private String name;
+
+    private String password;
+
+    public void printprint(String first,String mid,Integer last){
+        System.out.println("first = " + first + " mid = " +mid + " last = " + last);
+    }
 }

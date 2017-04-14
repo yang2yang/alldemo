@@ -17,5 +17,10 @@ public class TestController {
         return "hello testHome!";
     }
 
+    @ResponseBody
+    @RequestMapping(value = "testParams")
+    public String testParameters(String name){
+        return name;
+    }
 
 }
