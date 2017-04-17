@@ -2,7 +2,7 @@ package classdemo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
+//import java.lang.reflect.Parameter;
 
 /**
  * Created by ding on 2017/4/14.
@@ -16,11 +16,11 @@ public class testMethodInvoke {
 
         Method[] method = clazz.getDeclaredMethods();
         method[0].invoke(aa,"aaa","bbbb",1);
-        System.out.println(method[0].getParameters());
+//        System.out.println(method[0].getParameters());
 
-        for(Parameter parameter : method[0].getParameters()){
-            System.out.println("parameterName = " + parameter.getName());
-        }
+//        for(Parameter parameter : method[0].getParameters()){
+//            System.out.println("parameterName = " + parameter.getName());
+//        }
 
 
         Field[] fields = clazz.getDeclaredFields();
