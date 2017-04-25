@@ -4,6 +4,7 @@
  */
 package cn.qingtianr.demo.controller;
 
+import cn.qingtianr.demo.model.MessageBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,5 +21,11 @@ public class HomeController {
     @RequestMapping(value = "/index")
     public String home(){
         return "Hello,MVC";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/returnMessageBean")
+    public MessageBean returnMessageBean(){
+        return new MessageBean(true,"返回对象成功");
     }
 }
