@@ -21,7 +21,7 @@ public class LeetCode513 {
         LeetCode513 leetCode513 = new LeetCode513();
         System.out.println(leetCode513.findBottomLeftValue2(treeNode));
 //        leetCode513.findBottomLeftValue2(treeNode);
-//        System.out.println(leetCode513.result);
+//        System.out.println(leetCode513.Result);
     }
 
     public int findBottomLeftValue(TreeNode root) {
