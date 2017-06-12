@@ -7,21 +7,21 @@ import java.util.Arrays;
  */
 public class LeetCode153 {
     public static void main(String[] args) {
-        int[] nums = new int[]{5,1,2,3,4};
+        int[] nums = new int[]{1,2};
         LeetCode153 leetCode153 = new LeetCode153();
-        System.out.println(leetCode153.findMin(nums));
+        System.out.println(leetCode153.findMin3(nums));
     }
 
     public int findMin(int[] nums) {
-        if(nums == null || nums.length == 0){
+        if (nums == null || nums.length == 0) {
             return 0;
         }
-        if(nums.length == 1){
+        if (nums.length == 1) {
             return nums[0];
         }
-        int[] copyNums = Arrays.copyOf(nums,nums.length);
+        int[] copyNums = Arrays.copyOf(nums, nums.length);
         Arrays.sort(copyNums);
-        if(nums[0] == copyNums[0]){
+        if (nums[0] == copyNums[0]) {
             return nums[0];
         }
         int a = 0;
@@ -43,11 +43,11 @@ public class LeetCode153 {
             } else {
                 if (nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]) {
                     return nums[mid];
-                }else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1]) {
+                } else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1]) {
                     b = mid - 1;
-                }else if (nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]) {
+                } else if (nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]) {
                     a = mid + 1;
-                }else{
+                } else {
                     return nums[mid + 1];
                 }
 
@@ -57,8 +57,8 @@ public class LeetCode153 {
 
     public int findMin2(int[] nums) {
         int min = nums[0];
-        for(int i = 1;i < nums.length;i++){
-            min = Math.min(nums[i],min);
+        for (int i = 1; i < nums.length; i++) {
+            min = Math.min(nums[i], min);
         }
         return min;
     }
