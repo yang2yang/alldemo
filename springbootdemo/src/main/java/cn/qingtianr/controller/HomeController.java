@@ -24,4 +24,8 @@ public class HomeController {
         return new MessageBean(true,"返回对象成功");
     }
 
+    @RequestMapping(path = "/webSocket")
+    public String getWebSocket(){
+        return "testWebSocket";
+    }
 }
