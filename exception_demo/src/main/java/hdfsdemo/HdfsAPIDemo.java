@@ -10,7 +10,7 @@ import java.net.URI;
 /**
  * Created by jack on 2017/8/2.
  */
-public class hdfsAPIDemo {
+public class HdfsAPIDemo {
 
     public static void main(String[] args) throws Exception {
         putFile();
