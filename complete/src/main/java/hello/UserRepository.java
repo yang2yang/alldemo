@@ -1,5 +1,6 @@
 package hello;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import hello.User;
@@ -8,5 +9,4 @@ import hello.User;
 // CRUD refers Create, Read, Update, Delete
 
 public interface UserRepository extends CrudRepository<User, Long> {
-
 }
