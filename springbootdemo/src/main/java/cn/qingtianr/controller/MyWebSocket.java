@@ -10,8 +10,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /**
  * Created by jack on 2017/7/17.
  */
-@ServerEndpoint(value = "/websocket")
-@Component
+//@ServerEndpoint(value = "/websocket")
+//@Component
 public class MyWebSocket {
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
