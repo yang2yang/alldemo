@@ -4,11 +4,14 @@ package cn.qingtianr;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * Created by jack on 2017/9/4.
  */
-//@Configuration
+@Configuration
+@PropertySource("properties/example.properties")
 public class SprintBootJavaConfig {
 
     /**
@@ -25,7 +28,12 @@ public class SprintBootJavaConfig {
 //    }
 
 
-    
+    @Bean
+    public PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer(){
+        PropertySourcesPlaceholderConfigurer p =  new PropertySourcesPlaceholderConfigurer();
+        p.setIgnoreUnresolvablePlaceholders(true);
+        return p;
+    }
 
 
 
