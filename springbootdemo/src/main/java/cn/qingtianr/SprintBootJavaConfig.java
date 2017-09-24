@@ -2,9 +2,7 @@ package cn.qingtianr;
 
 //import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
@@ -12,6 +10,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  */
 @Configuration
 @PropertySource("properties/example.properties")
+@ImportResource("classpath:/spring/spring.xml")
 public class SprintBootJavaConfig {
 
     /**
