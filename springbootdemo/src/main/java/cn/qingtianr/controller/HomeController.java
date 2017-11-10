@@ -64,8 +64,8 @@ public class HomeController {
     public String getJson(){
         System.out.println(123);
         return "{\n" +
-                "\"data\":\n" +
-                "{\n" +
+                "\"data\":{\n" +
+                "    \n" +
                 "    \"deviceId\": \"3df439a5-ffcb-4386-aeeac-58897f1ba34\",\n" +
                 "    \"deviceInfo\": {\n" +
                 "        \"apkMD5\": \"\",\n" +
@@ -181,12 +181,11 @@ public class HomeController {
                 "        \"wifiMac\": \"34:80:b3:83:d1:83\",\n" +
                 "        \"gateway\": \"10.57.4.1\"\n" +
                 "    },\n" +
-                "    \"fpVersion\": \"3.0.4\"\n" +
-                "}， \n" +
-                "    \"reason_code\": \"200\", \n" +
-                "    \"reason_desc\": \"\", \n" +
+                "    \"fpVersion\": \"3.0.4\"},\n" +
+                "    \"reason_code\": \"200\",\n" +
+                "    \"reason_desc\": \"\",\n" +
                 "    \"seq_id\": \"1507799669419845T0B56301E7967773\", \n" +
                 "    \"success\": true\n" +
-                "}";
+                "}\n";
     }
 }
