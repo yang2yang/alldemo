@@ -43,15 +43,15 @@ import org.apache.http.util.EntityUtils;
 public class ClientChunkEncodedPost {
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 1)  {
-            System.out.println("File path not given");
-            System.exit(1);
-        }
+//        if (args.length != 1)  {
+//            System.out.println("File path not given");
+//            System.exit(1);
+//        }
         CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
             HttpPost httppost = new HttpPost("http://httpbin.org/post");
 
-            File file = new File(args[0]);
+            File file = new File("/Users/jack/Downloads/listdata (1).xlsx");
 
             InputStreamEntity reqEntity = new InputStreamEntity(
                     new FileInputStream(file), -1, ContentType.APPLICATION_OCTET_STREAM);
