@@ -5,6 +5,7 @@
 package cn.qingtianr.demo.controller;
 
 import cn.qingtianr.demo.model.MessageBean;
+import com.sun.xml.internal.ws.runtime.config.TubelineFeatureReader;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,10 @@ public class HomeController {
     @ResponseBody
     @RequestMapping(value = "/index")
     public String home(){
-        return "Hello,MVC";
+        while (true) {
+
+        }
+//        return "Hello,MVC";
     }
 
     @ResponseBody
