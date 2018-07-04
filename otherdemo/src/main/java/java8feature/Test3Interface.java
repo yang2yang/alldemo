@@ -5,8 +5,6 @@ package java8feature;
  */
 
 @FunctionalInterface
-public interface Test2Interface {
-
-    void test();
-
+public interface Test3Interface {
+    public int test(int param);
 }
